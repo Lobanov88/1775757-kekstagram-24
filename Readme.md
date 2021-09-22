@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Илья Лобанов](https://up.htmlacademy.ru/javascript/24/user/1775757).
-* Наставник: `Неизвестно`.
+* Наставник: [Анастасия Васинская](https://htmlacademy.ru/profile/vanastasiya).
 
 ---
 
