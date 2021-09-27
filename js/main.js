@@ -11,12 +11,7 @@ function getRandomNumber(min, max) {
 getRandomNumber(5, 75);
 
 function checkLength(checkString, maxLength) {
-  if (checkString.length > maxLength) {
-    console.log('Слишком много текста');
-    return;
-  }
-  console.log('Длина текста в порядке');
-  return;
+  return checkString.length < maxLength;
 }
 
 const exampleText = 'слишком длинный текст';
