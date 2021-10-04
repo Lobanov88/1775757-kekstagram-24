@@ -53,9 +53,9 @@ const COMMENT_NAMES_ARRAY = [
   'Антуан',
 ];
 
-const createComments = () => {
+const createComments = (number) => {
   let comment = {};
-  comment.id = getRandomNumber(150, 999);
+  comment.id = number;
   comment.avatar = 'img/avatar-' + getRandomNumber(1, 6) + '.svg';
   comment.message = MESSAGE_ARRAY[getRandomNumber(1, MESSAGE_ARRAY.length)];
   comment.name = COMMENT_NAMES_ARRAY[getRandomNumber(1, COMMENT_NAMES_ARRAY.length)];
@@ -69,7 +69,7 @@ const createDescription = (number) => {
   photoElement.description = DESCRIPTION_ARRAY[getRandomNumber(0, DESCRIPTION_ARRAY.length - 1)];
   photoElement.likes = getRandomNumber(15, 200);
   photoElement.comments = [];
-  photoElement.comments.push(createComments());
+  photoElement.comments.push(createComments(number));
   return photoElement;
 };
 
