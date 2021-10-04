@@ -18,7 +18,7 @@ checkLength(exampleText, 6);
 
 const PHOTOS_SUM = 25;
 
-const descriptionArray = [
+const DESCRIPTION_ARRAY = [
   'мое любимое фото',
   'просто фото',
   'мое первое фото на новом телефоне ура у меня новый телефон',
@@ -34,7 +34,7 @@ const descriptionArray = [
   'Тема бы как всегда засрал, но мне пох',
 ];
 
-const messageArray = [
+const MESSAGE_ARRAY = [
   'Всё отлично!',
   'В целом всё неплохо. Но не всё.',
   'Когда вы делаете фотографию, хорошо бы убирать палец из кадра. В конце концов это просто непрофессионально.',
@@ -43,7 +43,7 @@ const messageArray = [
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!',
 ];
 
-const commentNamesArray = [
+const COMMENT_NAMES_ARRAY = [
   'Петька',
   'Василий Иваныч',
   'Тема',
@@ -57,18 +57,20 @@ const createComments = () => {
   let comment = {};
   comment.id = getRandomNumber(150, 999);
   comment.avatar = 'img/avatar-' + getRandomNumber(1, 6) + '.svg';
-  comment.message = messageArray[getRandomNumber(1, messageArray.length)];
-  comment.name = commentNamesArray[getRandomNumber(1, commentNamesArray.length)];
+  comment.message = MESSAGE_ARRAY[getRandomNumber(1, MESSAGE_ARRAY.length)];
+  comment.name = COMMENT_NAMES_ARRAY[getRandomNumber(1, COMMENT_NAMES_ARRAY.length)];
+  return comment;
 };
 
 const createDescription = (number) => {
-  let arrayPhotosElement = {};
-  arrayPhotosElement.id = number;
-  arrayPhotosElement.url = 'photos/' + number + '.jpg';
-  arrayPhotosElement.description = descriptionArray[getRandomNumber(0, descriptionArray.length - 1)];
-  arrayPhotosElement.likes = getRandomNumber(15, 200);
-  arrayPhotosElement.comments = [];
-  arrayPhotosElement.comments.push(createComments());
+  let photoElement = {};
+  photoElement.id = number;
+  photoElement.url = 'photos/' + number + '.jpg';
+  photoElement.description = DESCRIPTION_ARRAY[getRandomNumber(0, DESCRIPTION_ARRAY.length - 1)];
+  photoElement.likes = getRandomNumber(15, 200);
+  photoElement.comments = [];
+  photoElement.comments.push(createComments());
+  return photoElement;
 };
 
 let arrayPhotos = [];
