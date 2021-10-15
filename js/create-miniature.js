@@ -1,25 +1,20 @@
-import { createDescription } from "./create-comments";
+const createMiniature = (photos) => {
+  const pictureTemplate = document.querySelector('#picture')
+    .content;
 
-const pictureTemplate = document.querySelector('#picture')
-  .content;
-const commentList = document.querySelector('.social__comments');
+  const photosFragment = document.createDocumentFragment();
 
-const pictureElement = pictureTemplate.cloneNode(true);
-commentList.appendChild(pictureElement);
+  photos.forEach((photo) => {
+    const photoElement = pictureTemplate.cloneNode(true);
+    photoElement.querySelector('.picture__img').src = photo.url;
+    photoElement.querySelector('.picture__likes').textContent = photo.likes;
+    photoElement.querySelector('.picture__comments').textContent = photo.comments.length;
+    photosFragment.appendChild(photoElement);
+  });
 
-const socialComments = createDescription();
+  const container = document.querySelector('.pictures');
 
-const commentsFragment = document.createDocumentFragment();
-
-socialComments.forEach((comment) => {
-  const commentElement = pictureTemplate.cloneNode(true);
-  commentElement.querySelector('.picture__img').href = comment.avatar;
-  commentElement.querySelector('.picture__likes').textContent = photoElement.likes;
-  // commentElement.querySelector('.picture__comments').textContent =
-  // что-то не понял откуда брать количество комментариев от слова совсем
-  commentsFragment.appendChild(commentElement);
-});
-
-commentList.appendChild(commentsFragment);
+  container.appendChild(photosFragment);
+};
 
 export {createMiniature};
