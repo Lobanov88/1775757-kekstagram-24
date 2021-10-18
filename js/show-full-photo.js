@@ -6,27 +6,32 @@ const closeModal = () => {
   bigPicture.classList.add('hidden');
 };
 
-const showFullPicture = () => {
+const showFullPicture = (photo) => {
   bigPicture.classList.remove('hidden');
   const bigPictureUrl = bigPicture.querySelector('.big-picture__img img').src;
-  const bigPictureLikes = bigPicture.querySelector('likes-count').textContent;
-  const bigPictureComments = bigPicture.querySelector('comments-count').textContent;
-  const bigPictureDescription = bigPicture.querySelector('social__caption');
+  const bigPictureLikes = bigPicture.querySelector('.likes-count').textContent;
+  const bigPictureComments = bigPicture.querySelector('.comments-count').textContent;
+  const bigPictureDescription = bigPicture.querySelector('.social__caption');
   const socialCommentsList = bigPicture.querySelector('.social__comments');
+  socialCommentsList.innerHTML = '';
 
-  for (let i = 0; i < bigPictureComments.length; i++) {
+  for (let i = 0; i < photo.comments.length; i++) {
     const socialComment = document.createElement('li');
     socialComment.classList.add('social__comment');
-    const socialCommentImg = socialComment.createElement('img');
+    const socialCommentImg = document.createElement('img');
     socialCommentImg.classList.add('social__picture');
-    // socialCommentImg.src =
-    // socialCommentImg.alt =
+    socialCommentImg.appendChild(socialCommentImg);
+    socialCommentImg.src = photo.comments[i].avatar;
+    socialCommentImg.alt = photo.comments[i].name;
     socialCommentImg.width = 35;
     socialCommentImg.height = 35;
-    const socialText = socialComment.createElement('p');
+    const socialText = document.createElement('p');
     socialText.classList.add('social__text');
-    // socialText.textContent =
+    socialText.textContent = photo.comments[i].message;
+    socialCommentImg.appendChild(socialText);
     socialCommentsList.appendChild(socialComment);
+    socialComment.append(socialCommentImg);
+    socialComment.append(socialText);
   }
 
   const body = document.querySelector('body');
