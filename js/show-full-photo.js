@@ -8,13 +8,13 @@ const closeModal = () => {
 
 const showFullPicture = (photo) => {
   bigPicture.classList.remove('hidden');
-  let bigPictureUrl = bigPicture.querySelector('.big-picture__img img').src;
-  bigPictureUrl = photo.url;
-  let bigPictureLikes = bigPicture.querySelector('.likes-count').textContent;
-  bigPictureLikes = photo.likes;
+  const bigPictureUrl = bigPicture.querySelector('.big-picture__img img');
+  bigPictureUrl.src = photo.url;
+  const bigPictureLikes = bigPicture.querySelector('.likes-count');
+  bigPictureLikes.textContent = photo.likes;
   const bigPictureComments = bigPicture.querySelector('.comments-count').textContent;
-  let bigPictureDescription = bigPicture.querySelector('.social__caption');
-  bigPictureDescription = photo.description;
+  const bigPictureDescription = bigPicture.querySelector('.social__caption');
+  bigPictureDescription.textContent = photo.description;
   const socialCommentsList = bigPicture.querySelector('.social__comments');
   socialCommentsList.innerHTML = '';
 

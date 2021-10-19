@@ -3,3 +3,5 @@ import {createMiniature} from './create-miniature.js';
 import {showFullPicture} from './show-full-photo.js';
 
 createMiniature(arrayPhotos);
+
+showFullPicture(arrayPhotos[2]);
