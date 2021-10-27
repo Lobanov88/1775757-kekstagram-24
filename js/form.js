@@ -32,13 +32,23 @@ uploadCancel.addEventListener('click', closeUploadPhoto ());
 const textHashtags = document.querySelector('.text__hashtags');
 const reHashtag = /^[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
 
+const arrayOfHashtags = textHashtags.value.split(' ');
+
 textHashtags.addEventListener('input', () => {
-  if (!reHashtag.test(textHashtags.value)) {
-    textHashtags.setCustomValidity('Неправильный формат хэш-тега');
+  if (arrayOfHashtags.length > 5) {
+    textHashtags.setCustomValidity('Возможно добавление не более 5 хэш-тегов');
   } else {
     textHashtags.setCustomValidity('');
   }
-});
+})
+
+// textHashtags.addEventListener('input', () => {
+//   if (!reHashtag.test(textHashtags.value)) {
+//     textHashtags.setCustomValidity('Неправильный формат хэш-тега');
+//   } else {
+//     textHashtags.setCustomValidity('');
+//   }
+// });
 
 const stopPropagation = (evt) => {
   evt.stopImmediatePropagation();
