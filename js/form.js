@@ -40,6 +40,13 @@ textHashtags.addEventListener('input', () => {
   }
 });
 
+const stopPropagation = (evt) => {
+  evt.stopImmediatePropagation();
+};
+
+textHashtags.addEventListener('focus', stopPropagation(evt));
+// оно?
+
 const textDescription = document.querySelector('.text__description');
 const MAX_DESCRIPTION_LENGTH = 140;
 
