@@ -30,7 +30,7 @@ uploadFile.addEventListener('change', openEditPhoto ());
 uploadCancel.addEventListener('click', closeUploadPhoto ());
 
 const textHashtags = document.querySelector('.text__hashtags');
-const reHashtag = /^[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
+const reHashtag = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
 
 const arrayOfHashtags = textHashtags.value.split(' ');
 
@@ -40,15 +40,23 @@ textHashtags.addEventListener('input', () => {
   } else {
     textHashtags.setCustomValidity('');
   }
-})
+});
 
-// textHashtags.addEventListener('input', () => {
-//   if (!reHashtag.test(textHashtags.value)) {
-//     textHashtags.setCustomValidity('Неправильный формат хэш-тега');
-//   } else {
-//     textHashtags.setCustomValidity('');
-//   }
-// });
+arrayOfHashtags.forEach(hashtag => {
+  if (hashtag.length > 20) {
+    textHashtags.setCustomValidity('Слишком длинный хэш-тег');
+  } else if (hashtag.length < 2) {
+    textHashtags.setCustomValidity('Слишком короткий хэш-тег');
+  } else if (!hashtag[0] === #) {
+    textHashtags.setCustomValidity('Хэш-тег должен начинаться с #');
+  } else if (!reHastag.test.hashtag) {
+    textHashtags.setCustomValidity('В хэш-тегах возможны только буквы и цифры')
+  } else {
+    textHashtags.setCustomValidity('');
+  }
+});
+
+// примерно так???
 
 const stopPropagation = (evt) => {
   evt.stopImmediatePropagation();
