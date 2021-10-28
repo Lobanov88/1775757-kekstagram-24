@@ -16,7 +16,7 @@ const COMMENTS_DOSE = 5;
 let indexComments = 0;
 
 const showComments = () => {
-	for (let i = indexComments; i <= COMMENTS_DOSE; i++ ) {
+	for (let i = indexComments; i <= indexComments + COMMENTS_DOSE; i++ ) {
 		const socialComment = document.createElement('li');
     socialComment.classList.add('social__comment');
     const socialCommentImg = document.createElement('img');
@@ -31,6 +31,7 @@ const showComments = () => {
     socialText.textContent = photo.comments[i].message;
     socialComment.appendChild(socialText);
     socialCommentsList.appendChild(socialComment);
+    indexComments++;
 };
 
 
@@ -87,4 +88,4 @@ const showFullPicture = (photo) => {
 
 commentsLoader.addListener('click', showComments());
 
-export {showFullPicture}
+export {showFullPicture};
