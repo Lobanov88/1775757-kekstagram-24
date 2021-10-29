@@ -1,16 +1,23 @@
 import { isEscapeKey } from './util.js';
 
+const MAX_SUM_HASHTAGS = 5;
+const MAX_LENGTH_HASHTAG = 20;
+const MIN_LENGTH_HASHTAG = 2;
+const MAX_LENGTH_DESCRIPTION = 140;
+
 const uploadFile = document.querySelector('#upload-file');
 const uploadCancel = document.querySelector('#upload-cancel');
 
 const imgUploadOverlay = document.querySelector('.img-upload__overlay');
 const body = document.querySelector('body');
 
-const MAX_SUM_HASHTAGS = 5;
-const MAX_LENGTH_HASHTAG = 20;
-const MIN_LENGTH_HASHTAG = 2;
+const closeUploadPhoto = () => {
+  imgUploadOverlay.classList.add('hidden');
+  body.classList.remove('modal-open');
+  uploadFile.value = '';
 
-const MAX_LENGTH_DESCRIPTION = 140;
+  document.removeEventListener('keydown', onUploadPhotoEscKeydown);
+};
 
 const onUploadPhotoEscKeydown = (evt) => {
   if (isEscapeKey(evt)) {
@@ -18,14 +25,6 @@ const onUploadPhotoEscKeydown = (evt) => {
     closeUploadPhoto();
   }
 };
-
-function closeUploadPhoto () {
-  imgUploadOverlay.classList.add('hidden');
-  body.classList.remove('modal-open');
-  uploadFile.value = '';
-
-  document.removeEventListener('keydown', onUploadPhotoEscKeydown);
-}
 
 const openEditPhoto = () => {
   imgUploadOverlay.classList.remove('hidden');
@@ -88,6 +87,6 @@ const stopPropagation = (evt) => {
   }
 };
 
-textHashtags.addEventListener('focus', stopPropagation);
+textHashtags.addEventListener('keydown', stopPropagation);
 
-textDescription.addEventListener('focus', stopPropagation);
+textDescription.addEventListener('keydown', stopPropagation);
