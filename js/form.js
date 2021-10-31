@@ -19,7 +19,7 @@ const closeUploadPhoto = () => {
   document.removeEventListener('keydown', onUploadPhotoEscKeydown);
 };
 
-const onUploadPhotoEscKeydown = (evt) => {
+function onUploadPhotoEscKeydown (evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
     closeUploadPhoto();
