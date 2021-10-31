@@ -24,7 +24,7 @@ function onUploadPhotoEscKeydown (evt) {
     evt.preventDefault();
     closeUploadPhoto();
   }
-};
+}
 
 const openEditPhoto = () => {
   imgUploadOverlay.classList.remove('hidden');
