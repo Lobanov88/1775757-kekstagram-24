@@ -19,7 +19,7 @@ const closeUploadPhoto = () => {
   document.removeEventListener('keydown', onUploadPhotoEscKeydown);
 };
 
-function onUploadPhotoEscKeydown (evt) {
+function onUploadPhotoEscKeydown(evt) {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
     closeUploadPhoto();
@@ -41,10 +41,10 @@ const reHashtag = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
 
 const textDescription = document.querySelector('.text__description');
 
-function uniquenessOfHashtags (stringOfHashtags) {
+function uniquenessOfHashtags(stringOfHashtags) {
   const lowCaseString = stringOfHashtags.toLowerCase();
   for (let i = 0; i < stringOfHashtags.length; i++) {
-    for (let j = i+1; j < stringOfHashtags.length; j++) {
+    for (let j = i + 1; j < stringOfHashtags.length; j++) {
       if (lowCaseString[i] === lowCaseString[j]) {
         return true;
       }

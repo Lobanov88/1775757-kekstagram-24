@@ -1,4 +1,6 @@
-import {getRandomNumber} from './get-random-number.js';
+import { getRandomNumber } from './get-random-number.js';
+
+// const NUMBER_COMMENTS = 12;
 
 const MESSAGE_ARRAY = [
   'Всё отлично!',
@@ -28,4 +30,15 @@ const createComments = (number) => {
   return comment;
 };
 
-export {createComments};
+// const createComments = () => {
+//   for (let i = 1; i < NUMBER_COMMENTS; i++) {
+//     let comment = {};
+//     comment.id = i;
+//     comment.avatar = 'img/avatar-' + getRandomNumber(1, 6) + '.svg';
+//     comment.message = MESSAGE_ARRAY[getRandomNumber(1, MESSAGE_ARRAY.length)];
+//     comment.name = COMMENT_NAMES_ARRAY[getRandomNumber(1, COMMENT_NAMES_ARRAY.length)];
+//     return comment;
+//   }
+// };
+
+export { createComments };

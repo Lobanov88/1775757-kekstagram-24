@@ -10,4 +10,4 @@ const getRandomNumber = (min, max) => {
 
 getRandomNumber(5, 75);
 
-export {getRandomNumber};
+export { getRandomNumber };
