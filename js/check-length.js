@@ -4,4 +4,4 @@ const exampleText = 'слишком длинный текст';
 
 checkLength(exampleText, 6);
 
-export {checkLength};
+export { checkLength };

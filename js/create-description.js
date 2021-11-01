@@ -1,5 +1,5 @@
-import {getRandomNumber} from './get-random-number.js';
-import {createComments} from './create-comments.js';
+import { getRandomNumber } from './get-random-number.js';
+import { createComments } from './create-comments.js';
 
 const DESCRIPTION_ARRAY = [
   'мое любимое фото',
@@ -18,14 +18,13 @@ const DESCRIPTION_ARRAY = [
 ];
 
 const createDescription = (number) => {
-  let photoElement = {};
+  const photoElement = {};
   photoElement.id = number;
   photoElement.url = 'photos/' + number + '.jpg';
   photoElement.description = DESCRIPTION_ARRAY[getRandomNumber(0, DESCRIPTION_ARRAY.length - 1)];
   photoElement.likes = getRandomNumber(15, 200);
-  photoElement.comments = [];
-  photoElement.comments.push(createComments(number));
+  photoElement.comments = createComments();
   return photoElement;
 };
 
-export {createDescription};
+export { createDescription };

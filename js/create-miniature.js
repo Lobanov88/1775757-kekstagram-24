@@ -19,4 +19,4 @@ const createMiniature = (photos) => {
   container.appendChild(photosFragment);
 };
 
-export {createMiniature};
+export { createMiniature };
