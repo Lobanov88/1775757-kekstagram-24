@@ -23,9 +23,7 @@ const createDescription = (number) => {
   photoElement.url = 'photos/' + number + '.jpg';
   photoElement.description = DESCRIPTION_ARRAY[getRandomNumber(0, DESCRIPTION_ARRAY.length - 1)];
   photoElement.likes = getRandomNumber(15, 200);
-  photoElement.comments = [];
-  // photoElement.comments.push(createComments(number));
-  photoElement.comments.push(createComments());
+  photoElement.comments = createComments();
   return photoElement;
 };
 
