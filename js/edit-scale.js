@@ -10,6 +10,8 @@ const scaleValue = document.querySelector('.scale__control--value');
 const imgUploadContainer = document.querySelector('.img-upload__preview');
 const imgUpload = imgUploadContainer.querySelector('img');
 
+const effectLevelValue = document.querySelector('.effect-level__value');
+
 scaleValue.value = DEFAULT_SCALE;
 
 let scaleTrueValue = scaleValue.value;
@@ -22,6 +24,7 @@ scaleBiggerButton.addEventListener('click', () => {
     scaleValue.value = scaleTrueValue;
 
     imgUpload.style.transform = `scale(${scaleTrueValue / 100})`;
+    effectLevelValue.value = scaleTrueValue;
   }
 });
 
@@ -31,9 +34,6 @@ scaleSmallerButton.addEventListener('click', () => {
     scaleValue.value = scaleTrueValue;
 
     imgUpload.style.transform = `scale(${scaleTrueValue / 100})`;
+    effectLevelValue.value = scaleTrueValue;
   }
 });
-
-// "Кроме визуального применения эффекта необходимо записывать значение в скрытое поле для дальнейшей отправки на сервер."
-
-// Не понял куда записывать...
