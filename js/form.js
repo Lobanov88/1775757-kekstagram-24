@@ -90,3 +90,5 @@ const stopPropagation = (evt) => {
 textHashtags.addEventListener('keydown', stopPropagation);
 
 textDescription.addEventListener('keydown', stopPropagation);
+
+export { closeUploadPhoto };

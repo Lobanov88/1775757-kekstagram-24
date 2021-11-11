@@ -1,9 +1,15 @@
 import { sendData } from './fetch.js';
-import { showErrorMessage, showSuccessMessage } from './fetch-messages';
+import { showErrorMessage, showSuccessMessage } from './fetch-messages.js';
+import { closeUploadPhoto } from './form.js';
 
 const imgUploadForm = document.querySelector('.img-upload__form');
 
+const onSuccesUpload = () => {
+  showSuccessMessage();
+  closeUploadPhoto();
+};
+
 imgUploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
-  sendData(showSuccessMessage, showErrorMessage, evt.target);
+  sendData(onSuccesUpload, showErrorMessage, new FormData(evt.target));
 });
