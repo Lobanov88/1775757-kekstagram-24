@@ -7,7 +7,7 @@ const errorTemplate = errorContainer.querySelector('section');
 const errorMessage = errorTemplate.cloneNode(true);
 
 const closeErrorMessage = () => {
-  errorTemplate.classList.add('hidden');
+  errorMessage.classList.add('hidden');
 
   document.removeEventListener('keydown', onErrorMessageEscKeydown);
 };
@@ -31,7 +31,7 @@ const successMessage = successTemplate.cloneNode(true);
 const closeSuccessButton = successContainer.querySelector('.success__button');
 
 const closeSuccessMessage = () => {
-  successTemplate.classList.add('hidden');
+  successMessage.classList.add('hidden');
 
   document.removeEventListener('keydown', onFetchMessageEscKeydown);
 };
