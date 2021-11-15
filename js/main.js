@@ -1,6 +1,4 @@
-import { arrayPhotos } from './make-array-photos.js';
-import { showFullPicture } from './show-full-photo.js';
-import { showErrorMessage, createServerErrorMessage, showServerErrorMessage, showSuccessMessage } from './fetch-messages.js';
+import { createServerErrorMessage, showServerErrorMessage } from './fetch-messages.js';
 import './form.js';
 import './edit-scale.js';
 import './slider.js';
