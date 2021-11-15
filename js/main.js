@@ -9,9 +9,6 @@ import { getData } from './fetch.js';
 import './submit-button.js';
 import { activateFilters, filterDefault, filterRandom, filterDiscussed } from './filter.js';
 
-// createMiniature(arrayPhotos);
-
-// showFullPicture(arrayPhotos[2]);
 createServerErrorMessage();
 
 const onSuccessLoad = (photos) => {

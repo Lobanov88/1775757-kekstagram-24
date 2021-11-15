@@ -3,8 +3,24 @@ import { getRandomNumber } from './get-random-number.js';
 import { createMiniature } from './create-miniature.js';
 
 const NUMBER_RANDOM = 10;
-
 const DELAY = 500;
+
+
+
+
+//
+const clearPictures = () => {
+  const pictures = document.querySelectorAll('.picture');
+
+  pictures.forEach((picture) => {
+    picture.remove();
+  });
+};
+//
+
+
+
+
 
 const removeActiveClass = () => {
   const buttons = document.querySelectorAll('.img-filters__button');
@@ -23,6 +39,9 @@ const filterDefault = (photos) => {
   const onDefaultClick = () => {
     removeActiveClass();
     button.classList.add('img-filters__button--active');
+
+    clearPictures();
+
     createMiniature(photos);
   };
   button.addEventListener('click', debounce(onDefaultClick, DELAY));
@@ -43,6 +62,9 @@ const filterRandom = (photos) => {
     }
     removeActiveClass();
     button.classList.add('img-filters__button--active');
+
+    clearPictures();
+
     createMiniature(randomPhotos);
   };
 
@@ -56,6 +78,9 @@ const filterDiscussed = (photos) => {
     const discussedPhotos = photos.slice().sort((a, b) => a.comments - b.comments);
     removeActiveClass();
     button.classList.add('img-filters__button--active');
+
+    clearPictures();
+
     createMiniature(discussedPhotos);
   };
 

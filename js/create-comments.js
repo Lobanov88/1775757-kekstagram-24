@@ -26,7 +26,8 @@ const createComments = () => {
   for (let i = 1; i < NUMBER_COMMENTS; i++) {
     const comment = {};
     comment.id = i;
-    comment.avatar = 'img/avatar-' + getRandomNumber(1, 6) + '.svg';
+    // comment.avatar = 'img/avatar-' + getRandomNumber(1, 6) + '.svg';
+    comment.avatar = `img/avatar-${getRandomNumber(1, 6)}.svg`;
     comment.message = MESSAGE_ARRAY[getRandomNumber(1, MESSAGE_ARRAY.length - 1)];
     comment.name = COMMENT_NAMES_ARRAY[getRandomNumber(1, COMMENT_NAMES_ARRAY.length - 1)];
     comments.push(comment);

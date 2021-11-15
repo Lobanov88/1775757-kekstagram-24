@@ -17,7 +17,6 @@ const createMiniature = (photos) => {
 
   photos.forEach((photo) => {
     const photoElement = template.cloneNode(true);
-    // const photoElement = pictureTemplate.cloneNode(true);
     photoElement.querySelector('.picture__img').src = photo.url;
     photoElement.querySelector('.picture__likes').textContent = photo.likes;
     photoElement.querySelector('.picture__comments').textContent = photo.comments.length;
@@ -34,24 +33,16 @@ const createMiniature = (photos) => {
 
   const container = document.querySelector('.pictures');
 
-  // container.innerHTML = '';
+  // const pictureElements = document.querySelectorAll('.picture');
 
-  const pictureElements = document.querySelectorAll('.picture');
+  // if (pictureElements.length > 0) {
 
-  if (pictureElements.length > 0) {
-    console.log(pictureElements);
-    Array.from(pictureElements).forEach((picture) => {
-      picture.remove;
-    });
-  }
+  //   console.log(pictureElements);
 
-
-
-  // console.log(document.querySelectorAll('.picture'));
-
-  // document.querySelectorAll('.picture').forEach((picture) => {
-  //   picture.remove;
-  // });
+  //   Array.from(pictureElements).forEach((picture) => {
+  //     picture.remove;
+  //   });
+  // }
 
   container.appendChild(photosFragment);
 };
