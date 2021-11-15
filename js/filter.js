@@ -5,10 +5,6 @@ import { createMiniature } from './create-miniature.js';
 const NUMBER_RANDOM = 10;
 const DELAY = 500;
 
-
-
-
-//
 const clearPictures = () => {
   const pictures = document.querySelectorAll('.picture');
 
@@ -16,11 +12,6 @@ const clearPictures = () => {
     picture.remove();
   });
 };
-//
-
-
-
-
 
 const removeActiveClass = () => {
   const buttons = document.querySelectorAll('.img-filters__button');
@@ -75,7 +66,8 @@ const filterDiscussed = (photos) => {
   const button = document.querySelector('#filter-discussed');
 
   const onDiscussedClick = () => {
-    const discussedPhotos = photos.slice().sort((a, b) => a.comments - b.comments);
+    // const discussedPhotos = photos.slice().sort((a, b) => a.comments - b.comments);
+    const discussedPhotos = photos.slice().sort((a, b) => b.comments.length - a.comments.length);
     removeActiveClass();
     button.classList.add('img-filters__button--active');
 
