@@ -1,6 +1,6 @@
 import { arrayPhotos } from './make-array-photos.js';
 import { showFullPicture } from './show-full-photo.js';
-import { showErrorMessage, showSuccessMessage } from './fetch-messages.js';
+import { showErrorMessage, createServerErrorMessage, showServerErrorMessage, showSuccessMessage } from './fetch-messages.js';
 import './form.js';
 import './edit-scale.js';
 import './slider.js';
@@ -12,6 +12,7 @@ import { activateFilters, filterDefault, filterRandom, filterDiscussed } from '.
 // createMiniature(arrayPhotos);
 
 // showFullPicture(arrayPhotos[2]);
+createServerErrorMessage();
 
 const onSuccessLoad = (photos) => {
   createMiniature(photos);
@@ -21,4 +22,4 @@ const onSuccessLoad = (photos) => {
   filterRandom(photos);
 };
 
-getData(onSuccessLoad, showErrorMessage);
+getData(onSuccessLoad, showServerErrorMessage);
