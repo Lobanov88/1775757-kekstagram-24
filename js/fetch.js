@@ -1,7 +1,6 @@
 const getData = (onSuccess, onError) => {
   fetch('https://24.javascript.pages.academy/kekstagram/data')
     .then((response) => {
-      // console.log(response);
       if (response.ok) {
         return response.json();
       } else {

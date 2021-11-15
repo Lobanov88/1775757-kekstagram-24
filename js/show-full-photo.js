@@ -19,14 +19,17 @@ let renderedComments = COMMENTS_DOSE;
 let comments = [];
 
 const showComments = () => {
+
+
+  if (renderedComments >= comments.length) {
+    commentsLoader.classList.add('hidden');
+    renderedComments = comments.length;
+  }
+
   const bigPictureComments = bigPicture.querySelector('.social__comment-count');
   bigPictureComments.innerHTML = `${renderedComments} из <span class="comments-count">${comments.length}</span> комментариев`;
   const socialCommentsList = bigPicture.querySelector('.social__comments');
   socialCommentsList.innerHTML = '';
-
-  if (renderedComments >= comments.length) {
-    commentsLoader.classList.add('hidden');
-  }
 
   for (let i = 0; i < renderedComments; i++) {
     const socialComment = document.createElement('li');
@@ -65,6 +68,8 @@ const showFullPicture = (photo) => {
   socialCommentsList.innerHTML = '';
   comments = photo.comments;
 
+  renderedComments = COMMENTS_DOSE;
+  commentsLoader.classList.remove('hidden');
   showComments();
 
   const body = document.querySelector('body');
