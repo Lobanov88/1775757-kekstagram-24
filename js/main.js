@@ -7,10 +7,18 @@ import './slider.js';
 import { createMiniature } from './create-miniature.js';
 import { getData } from './fetch.js';
 import './submit-button.js';
-import './filter.js';
+import { activateFilters, filterDefault, filterRandom, filterDiscussed } from './filter.js';
 
 // createMiniature(arrayPhotos);
 
 // showFullPicture(arrayPhotos[2]);
 
-getData(createMiniature, showErrorMessage);
+const onSuccessLoad = (photos) => {
+  createMiniature(photos);
+  activateFilters();
+  filterDiscussed(photos);
+  filterDefault(photos);
+  filterRandom(photos);
+};
+
+getData(onSuccessLoad, showErrorMessage);
