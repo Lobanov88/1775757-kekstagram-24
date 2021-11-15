@@ -7,6 +7,7 @@ import './slider.js';
 import { createMiniature } from './create-miniature.js';
 import { getData } from './fetch.js';
 import './submit-button.js';
+import './filter.js';
 
 // createMiniature(arrayPhotos);
 
