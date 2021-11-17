@@ -1,6 +1,5 @@
 import { showFullPicture } from './show-full-photo.js';
 
-
 const onMiniatureClick = (evt, photos) => {
   evt.preventDefault();
   const clickedPhoto = photos.filter((photo) => photo.id === evt.currentTarget.dataId)[0];
