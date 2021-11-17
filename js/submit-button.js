@@ -9,7 +9,12 @@ const onSuccesUpload = () => {
   closeUploadPhoto();
 };
 
+const cleanImgUploadForm = () => {
+  imgUploadForm.reset();
+};
+
 imgUploadForm.addEventListener('submit', (evt) => {
   evt.preventDefault();
   sendData(onSuccesUpload, showErrorMessage, new FormData(evt.target));
+  cleanImgUploadForm();
 });

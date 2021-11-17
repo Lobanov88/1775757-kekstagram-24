@@ -41,8 +41,8 @@ const reHashtag = /^#[A-Za-zА-Яа-яЁё0-9]{1,19}$/;
 
 const textDescription = document.querySelector('.text__description');
 
-function uniquenessOfHashtags(stringOfHashtags) {
-  const lowCaseString = stringOfHashtags.toLowerCase();
+const checkUniquenessOfHashtags = (stringOfHashtags) => {
+  const lowCaseString = stringOfHashtags.map((hashtag) => hashtag.toLowerCase());
   for (let i = 0; i < stringOfHashtags.length; i++) {
     for (let j = i + 1; j < stringOfHashtags.length; j++) {
       if (lowCaseString[i] === lowCaseString[j]) {
@@ -51,7 +51,7 @@ function uniquenessOfHashtags(stringOfHashtags) {
     }
   }
   return false;
-}
+};
 
 textHashtags.addEventListener('input', () => {
   const arrayOfHashtags = textHashtags.value.split(' ');
@@ -66,7 +66,7 @@ textHashtags.addEventListener('input', () => {
     textHashtags.setCustomValidity('Хэш-тег должен начинаться с #');
   } else if (arrayOfHashtags.some((hashtag) => !reHashtag.test(hashtag))) {
     textHashtags.setCustomValidity('В хэш-тегах возможны только буквы и цифры');
-  } else if (uniquenessOfHashtags(textHashtags.value)) {
+  } else if (checkUniquenessOfHashtags(arrayOfHashtags)) {
     textHashtags.setCustomValidity('Хэш-теги не должны повторяться');
   } else {
     textHashtags.setCustomValidity('');
@@ -92,13 +92,5 @@ const stopPropagation = (evt) => {
 textHashtags.addEventListener('keydown', stopPropagation);
 
 textDescription.addEventListener('keydown', stopPropagation);
-
-const imgUploadForm = document.querySelector('.img-upload__form');
-
-const cleanImgUploadForm = () => {
-  imgUploadForm.reset();
-};
-
-imgUploadForm.addEventListener('submit', cleanImgUploadForm);
 
 export { closeUploadPhoto };
