@@ -20,7 +20,6 @@ const DESCRIPTION_ARRAY = [
 const createDescription = (number) => {
   const photoElement = {};
   photoElement.id = number;
-  // photoElement.url = 'photos/' + number + '.jpg';
   photoElement.url = `photos/${number}.jpg`;
   photoElement.description = DESCRIPTION_ARRAY[getRandomNumber(0, DESCRIPTION_ARRAY.length - 1)];
   photoElement.likes = getRandomNumber(15, 200);

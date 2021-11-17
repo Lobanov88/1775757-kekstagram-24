@@ -33,17 +33,6 @@ const createMiniature = (photos) => {
 
   const container = document.querySelector('.pictures');
 
-  // const pictureElements = document.querySelectorAll('.picture');
-
-  // if (pictureElements.length > 0) {
-
-  //   console.log(pictureElements);
-
-  //   Array.from(pictureElements).forEach((picture) => {
-  //     picture.remove;
-  //   });
-  // }
-
   container.appendChild(photosFragment);
 };
 

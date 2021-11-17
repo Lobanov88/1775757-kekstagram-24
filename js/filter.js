@@ -66,7 +66,6 @@ const filterDiscussed = (photos) => {
   const button = document.querySelector('#filter-discussed');
 
   const onDiscussedClick = () => {
-    // const discussedPhotos = photos.slice().sort((a, b) => a.comments - b.comments);
     const discussedPhotos = photos.slice().sort((a, b) => b.comments.length - a.comments.length);
     removeActiveClass();
     button.classList.add('img-filters__button--active');
