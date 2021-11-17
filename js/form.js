@@ -71,6 +71,7 @@ textHashtags.addEventListener('input', () => {
   } else {
     textHashtags.setCustomValidity('');
   }
+  textHashtags.reportValidity();
 });
 
 textDescription.addEventListener('input', () => {
@@ -79,6 +80,7 @@ textDescription.addEventListener('input', () => {
   } else {
     textDescription.setCustomValidity('');
   }
+  textDescription.reportValidity();
 });
 
 const stopPropagation = (evt) => {
@@ -90,5 +92,13 @@ const stopPropagation = (evt) => {
 textHashtags.addEventListener('keydown', stopPropagation);
 
 textDescription.addEventListener('keydown', stopPropagation);
+
+const imgUploadForm = document.querySelector('.img-upload__form');
+
+const cleanImgUploadForm = () => {
+  imgUploadForm.reset();
+};
+
+imgUploadForm.addEventListener('submit', cleanImgUploadForm);
 
 export { closeUploadPhoto };
