@@ -37,3 +37,11 @@ scaleSmallerButton.addEventListener('click', () => {
     effectLevelValue.value = scaleTrueValue;
   }
 });
+
+const cleanScaleForm = () => {
+  scaleValue.value = DEFAULT_SCALE;
+  scaleTrueValue = DEFAULT_SCALE;
+  imgUpload.style.transform = `scale(${scaleTrueValue / 100})`;
+};
+
+export { cleanScaleForm };

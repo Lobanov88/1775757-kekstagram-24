@@ -25,7 +25,7 @@ const activateFilters = () => {
   filtersContainer.classList.remove('img-filters--inactive');
 };
 
-const filterDefault = (photos) => {
+const applyFilterDefault = (photos) => {
   const button = document.querySelector('#filter-default');
   const onDefaultClick = () => {
     removeActiveClass();
@@ -38,7 +38,7 @@ const filterDefault = (photos) => {
   button.addEventListener('click', debounce(onDefaultClick, DELAY));
 };
 
-const filterRandom = (photos) => {
+const applyFilterRandom = (photos) => {
   const button = document.querySelector('#filter-random');
 
   const onRandomClick = () => {
@@ -62,7 +62,7 @@ const filterRandom = (photos) => {
   button.addEventListener('click', debounce(onRandomClick, DELAY));
 };
 
-const filterDiscussed = (photos) => {
+const applyFilterDiscussed = (photos) => {
   const button = document.querySelector('#filter-discussed');
 
   const onDiscussedClick = () => {
@@ -78,4 +78,4 @@ const filterDiscussed = (photos) => {
   button.addEventListener('click', debounce(onDiscussedClick, DELAY));
 };
 
-export { activateFilters, filterDiscussed, filterRandom, filterDefault };
+export { activateFilters, applyFilterDiscussed, applyFilterRandom, applyFilterDefault };

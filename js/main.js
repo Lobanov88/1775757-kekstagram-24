@@ -5,16 +5,16 @@ import './slider.js';
 import { createMiniature } from './create-miniature.js';
 import { getData } from './fetch.js';
 import './submit-button.js';
-import { activateFilters, filterDefault, filterRandom, filterDiscussed } from './filter.js';
+import { activateFilters, applyFilterDefault, applyFilterRandom, applyFilterDiscussed } from './filter.js';
 
 createServerErrorMessage();
 
 const onSuccessLoad = (photos) => {
   createMiniature(photos);
   activateFilters();
-  filterDiscussed(photos);
-  filterDefault(photos);
-  filterRandom(photos);
+  applyFilterDiscussed(photos);
+  applyFilterDefault(photos);
+  applyFilterRandom(photos);
 };
 
 getData(onSuccessLoad, showServerErrorMessage);

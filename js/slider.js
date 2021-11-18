@@ -81,15 +81,15 @@ const specialStyles = {
   NONE: 'none',
 };
 
-const sliderDefault = () => {
+const cleanSliderEffects = () => {
   slider.style.display = 'none';
   imgUpload.classList.add(sliderSettings.NONE.class);
   imgUpload.style.filter = specialStyles.NONE;
 };
 
-sliderDefault();
+cleanSliderEffects();
 
-const effectsListener = (evt) => {
+const onEffectsChange = (evt) => {
   imgUpload.classList.remove(imgUpload.classList[1]);
   const sliderSetting = sliderSettings[evt.target.value.toUpperCase()];
   imgUpload.classList.add(sliderSetting.class);
@@ -144,4 +144,6 @@ const effectsListener = (evt) => {
 
 };
 
-effectsList.addEventListener('change', effectsListener);
+effectsList.addEventListener('change', onEffectsChange);
+
+export { cleanSliderEffects };

@@ -6,7 +6,16 @@ const bigPicture = document.querySelector('.big-picture');
 
 const closeModal = () => {
   bigPicture.classList.add('hidden');
+
+  removeEventListener('keydown', onFullPhotoEscKeydown);
 };
+
+function onFullPhotoEscKeydown(evt) {
+  if (isEscapeKey(evt)) {
+    evt.preventDefault();
+    closeModal();
+  }
+}
 
 const socialCommentCount = document.querySelector('.social__comment-count');
 const commentsLoader = document.querySelector('.comments-loader');
@@ -81,12 +90,7 @@ const showFullPicture = (photo) => {
     closeModal();
   });
 
-  document.addEventListener('keydown', (evt) => {
-    if (isEscapeKey(evt)) {
-      evt.preventDefault();
-      closeModal();
-    }
-  });
+  document.addEventListener('keydown', onFullPhotoEscKeydown);
 };
 
 commentsLoader.addEventListener('click', showComments);
