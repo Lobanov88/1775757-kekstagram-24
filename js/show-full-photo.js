@@ -40,6 +40,8 @@ const showComments = () => {
   const socialCommentsList = bigPicture.querySelector('.social__comments');
   socialCommentsList.innerHTML = '';
 
+  const fragment = document.createDocumentFragment();
+
   for (let i = 0; i < renderedComments; i++) {
     const socialComment = document.createElement('li');
     socialComment.classList.add('social__comment');
@@ -55,8 +57,10 @@ const showComments = () => {
     socialText.textContent = comments[i].message;
     socialComment.appendChild(socialText);
 
-    socialCommentsList.appendChild(socialComment);
+    fragment.appendChild(socialComment);
   }
+
+  socialCommentsList.appendChild(fragment);
 
   renderedComments += COMMENTS_DOSE;
 
