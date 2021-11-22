@@ -90,7 +90,7 @@ const specialStyles = {
 const cleanSliderEffects = () => {
   slider.style.display = 'none';
   imgUpload.classList.add(sliderSettings.NONE.class);
-  imgUpload.style.filter = specialStyles.NONE;
+  imgUpload.style.filter = specialStyles.none;
 };
 
 cleanSliderEffects();

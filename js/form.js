@@ -1,4 +1,6 @@
 import { isEscapeKey } from './util.js';
+import { cleanSliderEffects } from './slider.js';
+import { cleanScaleForm } from './edit-scale.js';
 
 const MAX_SUM_HASHTAGS = 5;
 const MAX_LENGTH_HASHTAG = 20;
@@ -15,6 +17,9 @@ const closeUploadPhoto = () => {
   imgUploadOverlay.classList.add('hidden');
   body.classList.remove('modal-open');
   uploadFile.value = '';
+
+  cleanSliderEffects();
+  cleanScaleForm();
 
   document.removeEventListener('keydown', onUploadPhotoEscKeydown);
 };
