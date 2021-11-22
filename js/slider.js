@@ -75,10 +75,16 @@ const sliderSettings = {
   },
 };
 
+// const specialStyles = {
+//   MARVIN: 'marvin',
+//   PHOBOS: 'phobos',
+//   NONE: 'none',
+// };
+
 const specialStyles = {
-  MARVIN: 'marvin',
-  PHOBOS: 'phobos',
-  NONE: 'none',
+  marvin: 'marvin',
+  phobos: 'phobos',
+  none: 'none',
 };
 
 const cleanSliderEffects = () => {

@@ -45,7 +45,7 @@ const applyFilterRandom = (photos) => {
     const randomPhotos = [];
 
     while (randomPhotos.length < NUMBER_RANDOM) {
-      const photoRandom = photos[getRandomNumber(0, photos.length)];
+      const photoRandom = photos[getRandomNumber(0, photos.length - 1)];
 
       if (randomPhotos.filter((photo) => photo.id === photoRandom.id).length === 0) {
         randomPhotos.push(photoRandom);
