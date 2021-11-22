@@ -75,22 +75,16 @@ const sliderSettings = {
   },
 };
 
-// const specialStyles = {
-//   MARVIN: 'marvin',
-//   PHOBOS: 'phobos',
-//   NONE: 'none',
-// };
-
 const specialStyles = {
-  marvin: 'marvin',
-  phobos: 'phobos',
-  none: 'none',
+  MARVIN: 'marvin',
+  PHOBOS: 'phobos',
+  NONE: 'none',
 };
 
 const cleanSliderEffects = () => {
   slider.style.display = 'none';
   imgUpload.classList.add(sliderSettings.NONE.class);
-  imgUpload.style.filter = specialStyles.none;
+  imgUpload.style.filter = specialStyles.NONE;
 };
 
 cleanSliderEffects();
