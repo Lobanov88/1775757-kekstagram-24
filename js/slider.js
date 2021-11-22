@@ -19,7 +19,7 @@ noUiSlider.create(sliderElement, {
 });
 
 const sliderSettings = {
-  NONE:
+  none:
   {
     class: 'effects__preview--mone',
     min: 0,
@@ -28,7 +28,7 @@ const sliderSettings = {
     step: 0,
     effect: 'none',
   },
-  CHROME:
+  chrome:
   {
     class: 'effects__preview--chrome',
     min: 0,
@@ -37,7 +37,7 @@ const sliderSettings = {
     step: 0.1,
     effect: 'grayscale',
   },
-  SEPIA:
+  sepia:
   {
     class: 'effects__preview--sepia',
     min: 0,
@@ -46,7 +46,7 @@ const sliderSettings = {
     step: 0.1,
     effect: 'sepia',
   },
-  MARVIN:
+  marvin:
   {
     class: 'effects__preview--marvin',
     min: 0,
@@ -55,7 +55,7 @@ const sliderSettings = {
     step: 1,
     effect: 'invert',
   },
-  PHOBOS:
+  phobos:
   {
     class: 'effects__preview--phobos',
     min: 0,
@@ -64,7 +64,7 @@ const sliderSettings = {
     step: 0.1,
     effect: 'blur',
   },
-  HEAT:
+  heat:
   {
     class: 'effects__preview--heat',
     min: 1,
@@ -76,25 +76,25 @@ const sliderSettings = {
 };
 
 const specialStyles = {
-  MARVIN: 'marvin',
-  PHOBOS: 'phobos',
-  NONE: 'none',
+  marvin: 'marvin',
+  phobos: 'phobos',
+  none: 'none',
 };
 
 const cleanSliderEffects = () => {
   slider.style.display = 'none';
-  imgUpload.classList.add(sliderSettings.NONE.class);
-  imgUpload.style.filter = specialStyles.NONE;
+  imgUpload.classList.add(sliderSettings.none.class);
+  imgUpload.style.filter = specialStyles.none;
 };
 
 cleanSliderEffects();
 
 const onEffectsChange = (evt) => {
   imgUpload.classList.remove(imgUpload.classList[1]);
-  const sliderSetting = sliderSettings[evt.target.value.toUpperCase()];
+  const sliderSetting = sliderSettings[evt.target.value];
   imgUpload.classList.add(sliderSetting.class);
 
-  if (evt.target.value === specialStyles.NONE) {
+  if (evt.target.value === specialStyles.none) {
 
     slider.style.display = 'none';
 
@@ -125,16 +125,16 @@ const onEffectsChange = (evt) => {
 
   sliderElement.noUiSlider.on('update', (values, handle) => {
     valueSlider.value = values[handle];
-    if (evt.target.value === specialStyles.NONE) {
-      imgUpload.style.filter = specialStyles.NONE;
+    if (evt.target.value === specialStyles.none) {
+      imgUpload.style.filter = specialStyles.none;
 
     } else {
       let units = '';
       switch (evt.target.value) {
-        case specialStyles.MARVIN:
+        case specialStyles.marvin:
           units = '%';
           break;
-        case specialStyles.PHOBOS:
+        case specialStyles.phobos:
           units = 'px';
           break;
       }
